@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Changes to the next tab in chromium
+
+[Service]
+User={{ inforpi_user }}
+Type=oneshot
+ExecStart=/usr/local/bin/chromium-tab-switch

@@ -1,0 +1,2 @@
+[all]
+info-rpi.local ansible_user=pi

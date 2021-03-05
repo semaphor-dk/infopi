@@ -1,0 +1,14 @@
+---
+inforpi_tab_timer: "*:*:0/15"
+
+inforpi_user: pi
+inforpi_group: pi
+
+inforpi_packages:
+  - "xserver-xorg"
+  - "x11-xserver-utils"
+  - "xinit"
+  - "openbox"
+  - "chromium-browser"
+  - "xdotool"
+  - "unclutter"

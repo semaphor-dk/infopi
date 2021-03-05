@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Run chromium-tab-switcher periodically
+
+[Timer]
+OnCalendar={{ inforpi_tab_timer }}
+AccuracySec=1sec
+Persistent=true
+
+[Install]
+WantedBy=timers.target

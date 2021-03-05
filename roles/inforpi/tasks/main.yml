@@ -1,0 +1,78 @@
+---
+- name: Install required packages
+  retries: 10
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+  apt:
+    name: "{{ inforpi_packages }}"
+    update_cache: yes
+    cache_valid_time: 7200
+    install_recommends: no
+
+#- name: Disable ssh login with password
+#
+#- name: Allow 'pi' group to have passwordless sudo
+#  lineinfile:
+#    dest: /etc/sudoers
+#    state: present
+#    regexp: '^%pi'
+#    line: '%pi ALL=(ALL) NOPASSWD: ALL'
+#    validate: 'visudo -cf %s'
+
+- name: Configure {{ inforpi_user }} user to auto startx
+  lineinfile:
+    path: "/home/{{ inforpi_user }}/.profile"
+    line: "[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor"
+
+- name: Configure openbox
+  template:
+    src: openbox.j2
+    dest: /etc/xdg/openbox/autostart
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install start-chromium script
+  template:
+    src: start-chromium.j2
+    dest: /usr/local/bin/start-chromium
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Install chromium-tab-switch script
+  copy:
+    src: chromium-tab-switch
+    dest: /usr/local/bin/chromium-tab-switch
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Install systemd chromium-tab-switch service
+  template:
+    src: chromium-tab-switch.service.j2
+    dest: /etc/systemd/system/chromium-tab-switch.service
+    owner: root
+    group: root
+    mode: 0640
+  notify: reload systemd
+
+- name: Install systemd timer for chromium-tab-switch
+  template:
+    src: chromium-tab-switch.timer.j2
+    dest: /etc/systemd/system/chromium-tab-switch.timer
+    owner: root
+    group: root
+    mode: 0640
+  notify: reload systemd
+
+- name: Make sure chromium-tab-switch.timer is enabled and started
+  systemd:
+    daemon_reload: true
+    state: started
+    name: chromium-tab-switch.timer
+    enabled: true
+
+- name: Rebooting machine
+  reboot:

@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+
+# Disable any form of screen saver / screen blanking / power management
+xset s off
+xset s noblank
+xset -dpms
+
+# Allow quitting the X server with CTRL-ATL-Backspace
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# Hide cursor when inactive for 0.1 s
+unclutter -idle 0.1 &
+
+# Start Chromium in kiosk mode
+/usr/local/bin/start-chromium
