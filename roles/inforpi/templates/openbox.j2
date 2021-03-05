@@ -11,5 +11,8 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # Hide cursor when inactive for 0.1 s
 unclutter -idle 0.1 &
 
+# Move the mouse out of sight.
+xdotool mousemove 8000 8000
+
 # Start Chromium in kiosk mode
 /usr/local/bin/start-chromium
