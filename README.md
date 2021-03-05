@@ -7,6 +7,9 @@ The project should work with all Raspberry Pi's but is currently only tested on 
 
 It is recommended to run the rpi's on a seperated network or VLAN as rpi's left unsupervised are prone to external keyboard attacks.
 
+### Demo
+
+![](demo.gif)
 
 ## Installation and configuration
 
