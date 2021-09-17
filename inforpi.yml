@@ -1,7 +1,0 @@
----
-- name: "Configure inforpi's"
-  hosts: "all"
-  become: yes
-  roles:
-    - "inforpi"
-

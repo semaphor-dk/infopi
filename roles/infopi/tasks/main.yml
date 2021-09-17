@@ -5,7 +5,7 @@
     DEBIAN_FRONTEND: noninteractive
 
   apt:
-    name: "{{ inforpi_packages }}"
+    name: "{{ infopi_packages }}"
     update_cache: yes
     cache_valid_time: 7200
     install_recommends: no
@@ -20,9 +20,9 @@
 #    line: '%pi ALL=(ALL) NOPASSWD: ALL'
 #    validate: 'visudo -cf %s'
 
-- name: Configure {{ inforpi_user }} user to auto startx
+- name: Configure {{ infopi_user }} user to auto startx
   lineinfile:
-    path: "/home/{{ inforpi_user }}/.profile"
+    path: "/home/{{ infopi_user }}/.profile"
     line: "[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- -nocursor"
 
 - name: Configure openbox

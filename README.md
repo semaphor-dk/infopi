@@ -1,7 +1,7 @@
-# info-rpi: Ansible managed info screens
+# infopi: Ansible managed info screens
 
 
-## What is info-rpi?
+## What is infopi?
 This project offers a free and Ansible managed alternative to proprietary info screens. The only component needed is a Raspberry Pi.
 The project should work with all Raspberry Pi's but is currently only tested on model 3.
 
@@ -20,16 +20,16 @@ It is recommended to run the rpi's on a seperated network or VLAN as rpi's left 
 To get started, clone this repository and generate an ssh keypair without password:
 
 ```bash
-git clone https://github.com/semaphor-dk/info-rpi
+git clone https://github.com/semaphor-dk/infopi
 ssh-keygen
 ```
 
 After obtaining the repository, some configurations must be made in order to suit your infrastructure.
 
-- Update `hosts` with the internal ip's or domains that point to the info-rpi's
+- Update `hosts` with the internal ip's or domains that point to the infopi's
 - Point to the private ssh key in `ansible.cfg`
-- Update url's to be cycled thorough through in the `group_vars/inforpi.yml`
-- Set amount of seconds between each tab switch in `roles/inforpi/defaults/main.yml`
+- Update url's to be cycled thorough through in the `group_vars/infopi.yml`
+- Set amount of seconds between each tab switch in `roles/infopi/defaults/main.yml`
 
 
 ### Preparing the Raspberry Pi
@@ -101,9 +101,9 @@ Make sure you have ansible installed:
 sudo apt install ansible -y
 ```
 
-The initialization, configuration and updates of the info-rpi's can be done with:
+The initialization, configuration and updates of the infopi's can be done with:
 ```bash
-ansible-playbook inforpi.yml
+ansible-playbook infopi.yml
 ```
 
 ## TO DO

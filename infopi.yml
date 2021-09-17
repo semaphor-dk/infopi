@@ -1,0 +1,7 @@
+---
+- name: "Configure infopi's"
+  hosts: "all"
+  become: yes
+  roles:
+    - "infopi"
+

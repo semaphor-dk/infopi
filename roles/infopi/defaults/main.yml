@@ -1,10 +1,10 @@
 ---
-inforpi_tab_timer: "*:*:0/15"
+infopi_tab_timer: "*:*:0/15"
 
-inforpi_user: pi
-inforpi_group: pi
+infopi_user: pi
+infopi_group: pi
 
-inforpi_packages:
+infopi_packages:
   - "xserver-xorg"
   - "x11-xserver-utils"
   - "xinit"

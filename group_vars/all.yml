@@ -1,5 +1,5 @@
 ---
-inforpi_urls:
+infopi_urls:
   - "https://play.grafana.org/d/000000074/alerting?orgId=1&kiosk"
   - "https://play.grafana.org/d/000000010/annotations?orgId=1&kiosk"
   - "https://play.grafana.org/d/vmie2cmWz/bar-gauge?orgId=1&refresh=10s&kiosk"

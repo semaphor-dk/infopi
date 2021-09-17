@@ -1,2 +1,2 @@
 [all]
-info-rpi.local ansible_user=pi
+infopi.local ansible_user=pi
